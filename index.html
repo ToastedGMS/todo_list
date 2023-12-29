@@ -11,7 +11,7 @@
         
         <header>
             <h1>Todo</h1>
-            <button class="headCreate">Create New</button>
+            <button data-type="formBtn" data-modal-target='#modal' class="headCreate">Create New</button>
         </header>
         
         <nav>
@@ -20,7 +20,7 @@
                 <button>Notes</button>
                 <button>Tasks</button>
                 <button>Projects</button>
-                <button>New</button>
+                <button data-type="formBtn">New</button>
             </div>
 
             <div class="about">
@@ -33,7 +33,48 @@
         <aside>
             <h2>Schedule</h2>
         </aside>
+
+        <div class="modal" id="modal">
+            <div class="modalHeader">
+                <div class="title">Create Todo</div>
+                <button data-close-button="" class="closeBtn">&times;</button>
+            </div>
+
+            <div class="modalBody">
+                
+                <form id="todoForm">
+                    <label for="type">Type:</label>
+                    <select id="type" name="type" required>
+                        <option value="Task">Task</option>
+                        <option value="Note">Note</option>
+                    </select><br><br>
+                    
+                    <label for="title">Title:</label>
+                    <input type="text" id="title" name="title" required><br><br>
+                    
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+                    
+                    <label for="dueDate">Due Date:</label>
+                    <input type="date" id="dueDate" name="dueDate"><br><br>
+                    
+                    <label for="dueTime">Due Time:</label>
+                    <input type="time" id="dueTime" name="dueTime"><br><br>
+                    
+                    <label for="priority">Priority:</label>
+                    <select id="priority" name="priority">
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select><br><br>
+                    
+                    <input type="submit" value="Create Todo">
+                </form>
+            </div>
+        </div>
         
+        <div id="overlay"></div>
+
     </div>
     <script src="./main.js"></script>
 </body>
