@@ -47,10 +47,33 @@ nav {
         display: flex;
         flex-direction: column;
     }
+
 main{
     border: 2px solid blue;
     grid-area: main;
+    padding: 2em;
+    display: grid;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-auto-flow: dense;
 }
+
+    .taskCard{
+        border: 1px solid black;
+        border-radius: 15px;
+        width: 250px;
+        height: fit-content;
+        padding: 10px;
+    }
+
+    .noteCard {
+        border: 1px solid black;
+        border-radius: 15px;
+        width: 250px;
+        height: fit-content;
+        padding: 10px;
+    }
 
 aside {
     border: 2px solid yellow;
@@ -77,36 +100,36 @@ aside {
     max-width: 80%;
 }
 
-.modal.active {
-    transform: translate(-50%, -50%) scale(1);
+    .modal.active {
+        transform: translate(-50%, -50%) scale(1);
 
-}
+    }
 
-.modalHeader {
-    padding: 10px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid black;
-}
+    .modalHeader {
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid black;
+    }
 
-.modalHeader .title {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
+    .modalHeader .title {
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
 
-.modalHeader .closeBtn {
-    cursor: pointer;
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 1.25rem;
-    font-weight: bold;
-}
+    .modalHeader .closeBtn {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
 
-.modalBody {
-    padding: 10px 15px;
-}
+    .modalBody {
+        padding: 10px 15px;
+    }
 
 #overlay {
     position: fixed;
@@ -120,7 +143,7 @@ aside {
     pointer-events: none;
 }
 
-#overlay.active {
-    opacity: 1;
-    pointer-events: all;
-}
+    #overlay.active {
+        opacity: 1;
+        pointer-events: all;
+    }

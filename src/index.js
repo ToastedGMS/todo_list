@@ -59,7 +59,4 @@ submitButton.addEventListener('click', (e) => {
     todoCreate()
 })
 
-const helloWorld = new Todo('Task', 'Hello World', 'Lorem Ipsum');
-helloWorld.pushToList();
-
 
