@@ -1,3 +1,4 @@
+import { cardCreate } from "./todo_card";
 import { Todo, todoList } from "./todo_class";
 
 
@@ -12,7 +13,7 @@ const todoCreate = () => {
     let newTodo = new Todo(type, title, description, dueDate, dueTime, priority);
 
     newTodo.pushToList()
-
+    cardCreate()
     console.log(newTodo)
     console.log(todoList)
 }
