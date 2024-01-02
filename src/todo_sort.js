@@ -1,15 +1,25 @@
+import { todoList } from "./todo_class";
+import { cardCreate } from "./todo_card";
+
 let todoTasks = [];
 let todoNotes = [];
 
-const todoSort = (todoList) => {
-    todoList.forEach(element => {
-        
-        if (element.type === 'Task'){
-            todoTasks.push(element);
-        } else if (element.type === 'Note'){
-            todoNotes.push(element);
-        }
-    });
+const todoSort = () => {
+    const noteBtn = document.querySelector('[data-notes]');
+    const taskBtn = document.querySelector('[data-tasks]');
+    const homeBtn = document.querySelector('[data-all]')
+
+    noteBtn.addEventListener('click', () => {
+    cardCreate(todoNotes)
+    })
+
+    taskBtn.addEventListener('click', () => {
+    cardCreate(todoTasks)
+    })
+
+    homeBtn.addEventListener('click', () => {
+        cardCreate(todoList)
+    })
 };
 
 export { todoTasks, todoNotes, todoSort }
