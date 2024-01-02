@@ -1,9 +1,8 @@
 // imports section
-import { todoNotes, todoTasks, todoSort } from "./todo_sort";
-import { projects } from "./todo_projects";
 import { todoFormOpen, todoFormClose } from "./todo_modal";
 import { todoCreate } from "./todo_create";
-import { Todo, todoList } from "./todo_class";
+import { todoSort } from "./todo_sort";
+
 
 // selectors section
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
@@ -13,8 +12,6 @@ const type = document.getElementById('type');
 const dueDate = document.getElementById('dueDate');
 const dueTime = document.getElementById('dueTime');
 const priority = document.getElementById('priority');
-const main = document.querySelector('main');
-
 
 // Logic for the form popup functionality 
 overlay.addEventListener('click', () =>{
@@ -32,7 +29,6 @@ formBtn.forEach((element) => {
 
 closeModalButtons.forEach((element) => {
     element.addEventListener('click', ()=>{ 
-        const modal = document.querySelector('.closeBtn')
 
         todoFormClose() });
 });
@@ -59,4 +55,5 @@ submitButton.addEventListener('click', (e) => {
     todoCreate()
 })
 
-
+// logic for todo sorting
+todoSort()

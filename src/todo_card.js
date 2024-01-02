@@ -1,17 +1,11 @@
-import { Todo, todoList } from "./todo_class";
-
-function cardCreate(){
-    const type = document.getElementById('type');
-    const dueDate = document.getElementById('dueDate');
-    const dueTime = document.getElementById('dueTime');
-    const priority = document.getElementById('priority');
+function cardCreate(arr){
     const main = document.querySelector('main');
 
     while (main.firstChild) {
         main.removeChild(main.lastChild)
     }
 
-    todoList.forEach((element) => {
+    arr.forEach((element) => {
         if (element.type === 'Task'){
             const taskCard = document.createElement('div');
             taskCard.classList.add('taskCard');
