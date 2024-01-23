@@ -8,10 +8,6 @@ import { todoSort } from "./todo_sort";
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
 const formBtn = document.querySelectorAll('[data-type="formBtn"]');
-const type = document.getElementById('type');
-const dueDate = document.getElementById('dueDate');
-const dueTime = document.getElementById('dueTime');
-const priority = document.getElementById('priority');
 
 // Logic for the form popup functionality 
 overlay.addEventListener('click', () =>{
@@ -33,19 +29,6 @@ closeModalButtons.forEach((element) => {
         todoFormClose() });
 });
 
-// logic to hide/show form options based on todo type
-type.addEventListener('change', () =>{
-    let x = document.getElementById('type');
-    if (x.value === 'Note'){
-        dueDate.style.display = 'none';
-        dueTime.style.display = 'none';
-        priority.style.display = 'none';
-    }else {
-        dueDate.style.display = 'inline';
-        dueTime.style.display = 'inline';
-        priority.style.display = 'inline';
-    }
-})
 
 // Logic for todo creation 
 const submitButton = document.querySelector('[data-submit-button]');

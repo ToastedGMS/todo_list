@@ -84,7 +84,27 @@ const modalBody = document.querySelector('.modalBody');
                 }
 
                 return select;
-            }
+            };
+
+// logic to hide/show form options based on todo type
+
+const type = document.getElementById('type');
+const dueDate = document.getElementById('dueDate');
+const dueTime = document.getElementById('dueTime');
+const priority = document.getElementById('priority');
+
+type.addEventListener('change', () =>{
+    let x = document.getElementById('type');
+    if (x.value === 'Note'){
+        dueDate.style.display = 'none';
+        dueTime.style.display = 'none';
+        priority.style.display = 'none';
+    }else {
+        dueDate.style.display = 'inline';
+        dueTime.style.display = 'inline';
+        priority.style.display = 'inline';
+    }
+})
 
 const todoFormOpen = () => {
     if (modal == null) return
