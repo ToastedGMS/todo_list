@@ -1,6 +1,6 @@
 import { cardCreate } from "./todo_card";
 import { Todo, todoList } from "./todo_class";
-import { todoTasks, todoNotes, todoSort } from "./todo_sort";
+import { todoTasks, todoNotes } from "./todo_sort";
 
 
 const todoCreate = () => {
