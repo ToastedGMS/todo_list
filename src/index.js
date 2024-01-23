@@ -57,3 +57,7 @@ submitButton.addEventListener('click', (e) => {
 
 // logic for todo sorting
 todoSort()
+
+//
+const modalBody = document.querySelector('.modalBody');
+modalBody.appendChild(document.createElement('p').innerHTML = 'fuck')
