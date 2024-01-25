@@ -27,7 +27,7 @@ function cardCreate(arr){
             taskCard.appendChild(dateP);
             taskCard.appendChild(timeP);
             taskCard.appendChild(prioriP);
-        } else {
+        } else if (element.type === 'Note'){
             const noteCard = document.createElement('div');
             noteCard.classList.add('noteCard');
             
@@ -39,6 +39,27 @@ function cardCreate(arr){
             main.appendChild(noteCard);
             noteCard.appendChild(titleH3);
             noteCard.appendChild(descP);
+        } else if (element.type === 'List') {
+            const listCard = document.createElement('div');
+            listCard.classList.add('listCard');
+
+            const titleH3 = document.createElement('h3');
+            titleH3.innerText = element.title;
+
+            const listItemsUl = document.createElement('ul');
+
+            // Include logic to display list items if they exist
+            if (element.listItems && element.listItems.length > 0) {
+                element.listItems.forEach((listItem) => {
+                    const listItemLi = document.createElement('li');
+                    listItemLi.innerText = listItem;
+                    listItemsUl.appendChild(listItemLi);
+                });
+            }
+
+            main.appendChild(listCard);
+            listCard.appendChild(titleH3);
+            listCard.appendChild(listItemsUl);
         }
     })
     
