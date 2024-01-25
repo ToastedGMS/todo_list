@@ -59,15 +59,7 @@ main{
     grid-auto-flow: dense;
 }
 
-    .taskCard{
-        border: 1px solid black;
-        border-radius: 15px;
-        width: 250px;
-        height: fit-content;
-        padding: 10px;
-    }
-
-    .noteCard {
+    .taskCard, .noteCard, .listCard{
         border: 1px solid black;
         border-radius: 15px;
         width: 250px;
