@@ -1,26 +1,51 @@
 import { cardCreate } from "./todo_card";
 import { Todo, todoList } from "./todo_class";
-import { todoTasks, todoNotes } from "./todo_sort";
+import { todoTasks, todoNotes, todoCheckLists } from "./todo_sort";
 
 
 const todoCreate = () => {
     let type = document.getElementById('type').value;
-    let title = document.getElementById('title').value;
-    let description = document.getElementById('description').value;
-    let dueDate = document.getElementById('dueDate').value;
-    let dueTime = document.getElementById('dueTime').value;
-    let priority = document.getElementById('priority').value;
 
-    let newTodo = new Todo(type, title, description, dueDate, dueTime, priority);
+    let titleElement = document.getElementById('title');
+    let title = titleElement ? titleElement.value : undefined;
 
-    if (newTodo.type === 'Task'){
-        todoTasks.push(newTodo);
-    } else if (newTodo.type === 'Note'){
-        todoNotes.push(newTodo);
+    let descriptionElement = document.getElementById('description');
+    let description = descriptionElement ? descriptionElement.value : undefined;
+
+    // Check if the element with ID 'dueDate' exists
+    let dueDateElement = document.getElementById('dueDate');
+    let dueDate = dueDateElement ? dueDateElement.value : undefined;
+
+    // Check if the element with ID 'dueTime' exists
+    let dueTimeElement = document.getElementById('dueTime');
+    let dueTime = dueTimeElement ? dueTimeElement.value : undefined;
+
+    // Check if the element with ID 'priority' exists
+    let priorityElement = document.getElementById('priority');
+    let priority = priorityElement ? priorityElement.value : undefined;
+
+    // Handle list items
+    let listItems = [];
+    let listItemsContainer = document.getElementById('listItemsContainer');
+    if (listItemsContainer) {
+        let listItemInputs = listItemsContainer.getElementsByTagName('input');
+        for (let input of listItemInputs) {
+            listItems.push(input.value);
+        }
     }
 
-    newTodo.pushToList()
-    cardCreate(todoList)
+    let newTodo = new Todo(type, title, description, dueDate, dueTime, priority, listItems);
+
+    if (newTodo.type === 'Task') {
+        todoTasks.push(newTodo);
+    } else if (newTodo.type === 'Note') {
+        todoNotes.push(newTodo);
+    } else {
+        todoCheckLists.push(newTodo);
+    }
+
+    newTodo.pushToList();
+    cardCreate(todoList);
 }
 
-export { todoCreate }
+export { todoCreate };
