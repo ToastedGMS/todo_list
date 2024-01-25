@@ -1,6 +1,5 @@
 // imports section
 import { todoFormOpen, todoFormClose } from "./todo_modal";
-import { todoCreate } from "./todo_create";
 import { todoSort } from "./todo_sort";
 
 
@@ -9,7 +8,7 @@ const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
 const formBtn = document.querySelectorAll('[data-type="formBtn"]');
 
-// Logic for the form popup functionality 
+// Logic for the modal popup functionality 
 overlay.addEventListener('click', () =>{
     let modals = document.querySelectorAll('.modal.active')
     modals.forEach(modal => {
@@ -29,18 +28,5 @@ closeModalButtons.forEach((element) => {
         todoFormClose() });
 });
 
-
-// Logic for todo creation 
-const submitButton = document.querySelector('[data-submit-button]');
-
-submitButton.addEventListener('click', (e) => {
-    e.preventDefault()
-    todoCreate()
-})
-
 // logic for todo sorting
-todoSort()
-
-//
-const modalBody = document.querySelector('.modalBody');
-modalBody.appendChild(document.createElement('p').innerHTML = 'fuck')
+todoSort();
