@@ -84,18 +84,30 @@ type.addEventListener('change', () =>{
         form.appendChild(document.createElement("br"));
         form.appendChild(document.createElement("br"));
 
+        
         var submitButton = document.createElement("input");
         submitButton.type = "submit";
         submitButton.value = "Create Todo";
         submitButton.setAttribute("data-type", "submit-button");
         form.appendChild(submitButton);
-
+        
+        var buildProjectFormBtn = document.createElement("input");
+        buildProjectFormBtn.type = "submit";
+        buildProjectFormBtn.value = "Add to Project";
+        buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
+        form.appendChild(buildProjectFormBtn);    
         // Logic for todo creation 
+        
+        buildProjectFormBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            buildProjectForm();
+        })
 
         submitButton.addEventListener('click', (e) => {
             e.preventDefault()
             todoCreate()
         })
+
 
     }else if (x.value === 'Task'){
         // Removes form element children and appends only the ones relevant to selected form type
@@ -139,6 +151,18 @@ type.addEventListener('change', () =>{
         submitButton.value = "Create Todo";
         submitButton.setAttribute("data-type", "submit-button");
         form.appendChild(submitButton);
+
+        var buildProjectFormBtn = document.createElement("input");
+        buildProjectFormBtn.type = "submit";
+        buildProjectFormBtn.value = "Add to Project";
+        buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
+        form.appendChild(buildProjectFormBtn);    
+        // Logic for todo creation 
+        
+        buildProjectFormBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            buildProjectForm();
+        })
 
         // Logic for todo creation 
 
@@ -191,6 +215,19 @@ type.addEventListener('change', () =>{
         submitButton.value = "Create Todo";
         submitButton.setAttribute("data-type", "submit-button");
         form.appendChild(submitButton);
+
+        var buildProjectFormBtn = document.createElement("input");
+        buildProjectFormBtn.type = "submit";
+        buildProjectFormBtn.value = "Add to Project";
+        buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
+        form.appendChild(buildProjectFormBtn);    
+        // Logic for todo creation 
+        
+        buildProjectFormBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            buildProjectForm();
+        })
+
     
         // Logic for todo creation 
         submitButton.addEventListener('click', (e) => {
@@ -220,7 +257,7 @@ type.addEventListener('change', () =>{
         // Logic for todo creation 
         projectCreateButton.addEventListener('click', (e) => {
             e.preventDefault();
-            addProjectToList();
+
         });
     }
     
@@ -239,5 +276,29 @@ const todoFormClose = () => {
     overlay.classList.remove('active');
 
 };
+
+const buildProjectForm = () => {
+    
+    form.appendChild(document.createElement("br"));
+    form.appendChild(document.createElement("br"));
+    form.appendChild(createLabel("Project Title", "projectTitle"));
+    form.appendChild(createInput("text", "projectTitle"));
+    form.appendChild(document.createElement("br"));
+    form.appendChild(document.createElement("br"));
+
+    var projectCreateButton = document.createElement("input");
+    projectCreateButton.type = "submit";
+    projectCreateButton.value = "Create Todo and add to Project";
+    projectCreateButton.setAttribute("data-type", "project-create-button");
+    form.appendChild(projectCreateButton);
+
+    // Logic for todo creation 
+    projectCreateButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        todoCreate();
+        addProjectToList();
+
+    });
+}
 
 export { todoFormOpen, todoFormClose }
