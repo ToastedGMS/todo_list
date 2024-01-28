@@ -1,10 +1,16 @@
-let projectList = {};
+import { cardCreate } from "./todo_card";
+import { todoList } from "./todo_class";
+
+let projectList = [];
 
 function addProjectToList(){
     const projectTitle = document.getElementById('projectTitle').value;
-    projectList[projectTitle] = [];
 
-    console.log(projectList)
+    const arr = new Array(projectTitle)
+    arr.push(todoList[todoList.length-1])
+    projectList.push(arr)
+    console.log('project list', projectList)
+    console.log('array', arr)
 }
 
 function showProjectList (){
@@ -12,13 +18,17 @@ function showProjectList (){
     let projectDiv = document.querySelector('#projectDiv');
 
     projectBtn.addEventListener('click',() => {
-        Object.keys(projectList).forEach((e) => {
+        projectList.forEach((element, index) => {
             let newBtn = document.createElement('button');
-            newBtn.innerText = e;
+            newBtn.setAttribute('data-index', index)
+            newBtn.innerText = element[0];
             projectDiv.appendChild(newBtn)
+            newBtn.addEventListener('click', () => {
+                cardCreate(element)
+                })
         })
     })
 }
 
 showProjectList()
-export { addProjectToList };
+export { addProjectToList, projectList };
