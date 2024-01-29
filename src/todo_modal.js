@@ -9,7 +9,7 @@ const form = document.createElement("form");
 
     // Create and append type selector for the form
     form.appendChild(createLabel("Type", "type"));
-    form.appendChild(createSelect("type", ["", "Project","Task", "Note", "List"]));
+    form.appendChild(createSelect("type", ["","Task", "Note", "List", "Project"]));
     form.appendChild(document.createElement("br"));
     form.appendChild(document.createElement("br"));
     
@@ -28,7 +28,9 @@ const form = document.createElement("form");
             input.type = type;
             input.id = id;
             input.name = id;
-            input.required = true;
+            if (id === 'dueDate'|| id === 'dueTime'){
+            input.required = false}
+            else { input.required = true};
             return input;
         };
 
@@ -168,11 +170,16 @@ type.addEventListener('change', () =>{
     
         var listItemsContainer = document.createElement("div");
         listItemsContainer.id = "listItemsContainer";
-    
+        
+        let listItemCounter = 0;
+
         function addListItemInput() {
+            if (listItemCounter < 13){
             var listItemInput = createInput("text", "li");
             listItemsContainer.appendChild(listItemInput);
             listItemsContainer.appendChild(document.createElement("br"));
+            listItemCounter += 1;}
+            else return
         }
     
         // Initially add one list item input
@@ -223,9 +230,11 @@ type.addEventListener('change', () =>{
         projectCreateButton.setAttribute("data-type", "project-create-button");
         form.appendChild(projectCreateButton);
     
-        // Logic for todo creation 
         projectCreateButton.addEventListener('click', (e) => {
             e.preventDefault();
+            let existingSpan = form.querySelector('span');
+            if (existingSpan) existingSpan.remove();
+            form.appendChild(document.createElement('span')).innerText = 'Project Created!'
         });
     };
     
@@ -264,10 +273,17 @@ const buildProjectForm = () => {
 
     projectCreateButton.addEventListener('click', (e) => {
         e.preventDefault();
+    
+        // Remove existing span, if any
+        let existingSpan = form.querySelector('span');
+        if (existingSpan) existingSpan.remove();
+    
         todoCreate();
         addProjectToList();
-
+    
+        form.appendChild(document.createElement('span')).innerText = `Todo Created and added to ${document.getElementById('projectTitle').value}!`;
     });
+    
 };
 
 const removeUnusedChildren = () => {
