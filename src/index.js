@@ -8,13 +8,17 @@ const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
 const formBtn = document.querySelectorAll('[data-type="formBtn"]');
 
-// Logic for the modal popup functionality 
+// modal section
+
+// close modal when overlay is clicked
 overlay.addEventListener('click', () =>{
     let modals = document.querySelectorAll('.modal.active')
     modals.forEach(modal => {
         todoFormClose(modal);
     });
 });
+
+// Logic for the modal popup functionality 
 
 formBtn.forEach((element) => {
     element.addEventListener('click', ()=>{ 

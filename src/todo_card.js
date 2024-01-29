@@ -1,11 +1,15 @@
 function cardCreate(arr){
     const main = document.querySelector('main');
 
+    // delete all cards in main section to free up space for new ones
     while (main.firstChild) {
         main.removeChild(main.lastChild)
     }
 
+    // card creation logic for each type of todo
     arr.forEach((element) => {
+
+        // task todo
         if (element.type === 'Task'){
             const taskCard = document.createElement('div');
             taskCard.classList.add('taskCard');
@@ -27,6 +31,8 @@ function cardCreate(arr){
             taskCard.appendChild(dateP);
             taskCard.appendChild(timeP);
             taskCard.appendChild(prioriP);
+
+        // note todo
         } else if (element.type === 'Note'){
             const noteCard = document.createElement('div');
             noteCard.classList.add('noteCard');
@@ -39,6 +45,8 @@ function cardCreate(arr){
             main.appendChild(noteCard);
             noteCard.appendChild(titleH3);
             noteCard.appendChild(descP);
+
+        // list todo
         } else if (element.type === 'List') {
             const listCard = document.createElement('div');
             listCard.classList.add('listCard');
