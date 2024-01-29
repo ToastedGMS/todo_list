@@ -4,16 +4,16 @@ import { todoList } from "./todo_class";
 let projectList = [];
 
 function addProjectToList(){
+    //creates array to store projects, and stores it in projectList array
     const projectTitle = document.getElementById('projectTitle').value;
 
     const arr = new Array(projectTitle)
     arr.push(todoList[todoList.length-1])
     projectList.push(arr)
-    console.log('project list', projectList)
-    console.log('array', arr)
 }
 
 function showProjectList (){
+    // shows a list of all projects and displays selected one on button click
     let projectBtn = document.querySelector('#projectBtn');
     let projectDiv = document.querySelector('#projectDiv');
 

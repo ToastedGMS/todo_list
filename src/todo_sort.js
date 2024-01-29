@@ -6,21 +6,18 @@ let todoNotes = [];
 let todoCheckLists = [];
 
 const todoSort = () => {
-    const projectBtn = document.querySelector('[data-projects]');
+    //creates todo cards based on todo type array
     const listBtn = document.querySelector('[data-lists]');
     const noteBtn = document.querySelector('[data-notes]');
     const taskBtn = document.querySelector('[data-tasks]');
     const homeBtn = document.querySelector('[data-all]');
 
-    projectBtn.addEventListener('click', () => {
-    })
-
     noteBtn.addEventListener('click', () => {
-    cardCreate(todoNotes)
+        cardCreate(todoNotes)
     })
 
     taskBtn.addEventListener('click', () => {
-    cardCreate(todoTasks)
+        cardCreate(todoTasks)
     })
 
     homeBtn.addEventListener('click', () => {
