@@ -1,3 +1,4 @@
+// imports
 import { todoCreate } from "./todo_create";
 import { addProjectToList } from "./todo_project";
 
@@ -12,10 +13,8 @@ const form = document.createElement("form");
     form.appendChild(document.createElement("br"));
     form.appendChild(document.createElement("br"));
     
-    // Append form to the modal
     modalBody.appendChild(form);
             
-
         // Helper functions to create form elements
         function createLabel(text, forAttribute) {
             var label = document.createElement("label");
@@ -65,15 +64,9 @@ type.addEventListener('change', () =>{
     let x = document.getElementById('type');
     
     if (x.value === 'Note'){
-        // Removes form element children and appends only the ones relevant to selected form type
-        
-        var childElements = form.children; 
-        // Start from the fifth child element (index 4) and remove subsequent elements
-        var index = 4;
-        while (index < childElements.length) {
-            form.removeChild(childElements[index]);
-        };
+        removeUnusedChildren();//Removes form element children and appends only the ones relevant to selected form type
 
+        // Create and append elements to the form
         form.appendChild(createLabel("Title", "title"));
         form.appendChild(createInput("text", "title"));
         form.appendChild(document.createElement("br"));
@@ -84,7 +77,6 @@ type.addEventListener('change', () =>{
         form.appendChild(document.createElement("br"));
         form.appendChild(document.createElement("br"));
 
-        
         var submitButton = document.createElement("input");
         submitButton.type = "submit";
         submitButton.value = "Create Todo";
@@ -96,11 +88,11 @@ type.addEventListener('change', () =>{
         buildProjectFormBtn.value = "Add to Project";
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
         form.appendChild(buildProjectFormBtn);    
-        // Logic for todo creation 
         
         buildProjectFormBtn.addEventListener('click', (e) => {
             e.preventDefault();
             buildProjectForm();
+            //creates project creation form to add todo to it
         })
 
         submitButton.addEventListener('click', (e) => {
@@ -110,17 +102,9 @@ type.addEventListener('change', () =>{
 
 
     }else if (x.value === 'Task'){
-        // Removes form element children and appends only the ones relevant to selected form type
-        
-        var childElements = form.children; 
-        // Start from the fifth child element (index 4) and remove subsequent elements
-        var index = 4;
-        while (index < childElements.length) {
-            form.removeChild(childElements[index]);
-        };
+        removeUnusedChildren();// Removes form element children and appends only the ones relevant to selected form type
 
         // Create and append elements to the form
-          
         form.appendChild(createLabel("Title", "title"));
         form.appendChild(createInput("text", "title"));
         form.appendChild(document.createElement("br"));
@@ -157,14 +141,12 @@ type.addEventListener('change', () =>{
         buildProjectFormBtn.value = "Add to Project";
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
         form.appendChild(buildProjectFormBtn);    
-        // Logic for todo creation 
         
         buildProjectFormBtn.addEventListener('click', (e) => {
             e.preventDefault();
             buildProjectForm();
+            //creates project creation form to add todo to it
         })
-
-        // Logic for todo creation 
 
         submitButton.addEventListener('click', (e) => {
             e.preventDefault()
@@ -172,14 +154,8 @@ type.addEventListener('change', () =>{
         })
 
     } else if (x.value === 'List') {
-        // Removes form element children and appends only the ones relevant to selected form type
-        var childElements = form.children; 
-        // Start from the fifth child element (index 4) and remove subsequent elements
-        var index = 4;
-        while (index < childElements.length) {
-            form.removeChild(childElements[index]);
-        }
-    
+        removeUnusedChildren();// Removes form element children and appends only the ones relevant to selected form type
+
         // Create and append elements to the form
         form.appendChild(createLabel("Title", "title"));
         form.appendChild(createInput("text", "title"));
@@ -221,27 +197,20 @@ type.addEventListener('change', () =>{
         buildProjectFormBtn.value = "Add to Project";
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
         form.appendChild(buildProjectFormBtn);    
-        // Logic for todo creation 
         
         buildProjectFormBtn.addEventListener('click', (e) => {
             e.preventDefault();
             buildProjectForm();
+            //creates project creation form to add todo to it
         })
 
-    
-        // Logic for todo creation 
         submitButton.addEventListener('click', (e) => {
             e.preventDefault();
             todoCreate();
         });
+
     } else if (x.value === 'Project'){
-        // Removes form element children and appends only the ones relevant to selected form type
-        var childElements = form.children; 
-        // Start from the fifth child element (index 4) and remove subsequent elements
-        var index = 4;
-        while (index < childElements.length) {
-            form.removeChild(childElements[index]);
-        }
+        removeUnusedChildren();// Removes form element children and appends only the ones relevant to selected form type
 
         form.appendChild(createLabel("Project Title", "projectTitle"));
         form.appendChild(createInput("text", "projectTitle"));
@@ -257,12 +226,12 @@ type.addEventListener('change', () =>{
         // Logic for todo creation 
         projectCreateButton.addEventListener('click', (e) => {
             e.preventDefault();
-
         });
-    }
+    };
     
 });
 
+// logic for modal popup and overlay functionality
 const todoFormOpen = () => {
     if (modal == null) return
     modal.classList.add('active');
@@ -279,6 +248,7 @@ const todoFormClose = () => {
 
 const buildProjectForm = () => {
     
+    // creates project form under todo creation form
     form.appendChild(document.createElement("br"));
     form.appendChild(document.createElement("br"));
     form.appendChild(createLabel("Project Title", "projectTitle"));
@@ -292,13 +262,23 @@ const buildProjectForm = () => {
     projectCreateButton.setAttribute("data-type", "project-create-button");
     form.appendChild(projectCreateButton);
 
-    // Logic for todo creation 
     projectCreateButton.addEventListener('click', (e) => {
         e.preventDefault();
         todoCreate();
         addProjectToList();
 
     });
-}
+};
+
+const removeUnusedChildren = () => {
+    // Removes form element children and appends only the ones relevant to selected form type
+    
+    var childElements = form.children; 
+    // Start from the fifth child element (index 4) and remove subsequent elements
+    var index = 4;
+    while (index < childElements.length) {
+        form.removeChild(childElements[index]);
+    };
+};
 
 export { todoFormOpen, todoFormClose }
