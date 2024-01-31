@@ -48,6 +48,10 @@ function showProjectList (){
     let projectDiv = document.querySelector('#projectDiv');
 
     projectBtn.addEventListener('click',() => {
+    // delete all buttons to free up space for new ones
+    while (projectDiv.firstChild) {
+        projectDiv.removeChild(projectDiv.lastChild)
+    }
         projectList.forEach((element, index) => {
             let newBtn = document.createElement('button');
             newBtn.setAttribute('data-index', index)
