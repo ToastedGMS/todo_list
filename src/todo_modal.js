@@ -278,8 +278,11 @@ const buildProjectForm = () => {
         let existingSpan = form.querySelector('span');
         if (existingSpan) existingSpan.remove();
     
+        todoCreate();
         addProjectToList();
-        });
+    
+        form.appendChild(document.createElement('span')).innerText = `Todo Created and added to ${document.getElementById('projectTitle').value}!`;
+    });
     
 };
 
@@ -294,4 +297,4 @@ const removeUnusedChildren = () => {
     };
 };
 
-export { todoFormOpen, todoFormClose, form }
+export { todoFormOpen, todoFormClose }
