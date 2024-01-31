@@ -91,11 +91,8 @@ type.addEventListener('change', () =>{
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
         form.appendChild(buildProjectFormBtn);    
         
-        buildProjectFormBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            buildProjectForm();
-            //creates project creation form to add todo to it
-        })
+        buildProjectFormBtn.addEventListener('click', handleClickOnce);
+        buildProjectFormBtn.addEventListener('click', (e) => e.preventDefault())
 
         submitButton.addEventListener('click', (e) => {
             e.preventDefault()
@@ -144,11 +141,8 @@ type.addEventListener('change', () =>{
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
         form.appendChild(buildProjectFormBtn);    
         
-        buildProjectFormBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            buildProjectForm();
-            //creates project creation form to add todo to it
-        })
+        buildProjectFormBtn.addEventListener('click', handleClickOnce);
+        buildProjectFormBtn.addEventListener('click', (e) => e.preventDefault())
 
         submitButton.addEventListener('click', (e) => {
             e.preventDefault()
@@ -205,11 +199,8 @@ type.addEventListener('change', () =>{
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
         form.appendChild(buildProjectFormBtn);    
         
-        buildProjectFormBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            buildProjectForm();
-            //creates project creation form to add todo to it
-        })
+        buildProjectFormBtn.addEventListener('click', handleClickOnce);
+        buildProjectFormBtn.addEventListener('click', (e) => e.preventDefault())
 
         submitButton.addEventListener('click', (e) => {
             e.preventDefault();
@@ -294,5 +285,15 @@ const removeUnusedChildren = () => {
         form.removeChild(childElements[index]);
     };
 };
+
+function handleClickOnce(e) {
+    e.preventDefault();
+    buildProjectForm();
+    // creates project creation form to add todo to it
+
+    // Remove the event listener after it has been invoked
+    let buildProjectFormBtn = document.querySelector('[data-type="project-form-build-button"]')
+    buildProjectFormBtn.removeEventListener('click', handleClickOnce);
+}
 
 export { todoFormOpen, todoFormClose, form }
