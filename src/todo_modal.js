@@ -223,10 +223,13 @@ type.addEventListener('change', () =>{
     
         projectCreateButton.addEventListener('click', (e) => {
             e.preventDefault();
+            addProjectToList();
+
             let existingSpan = form.querySelector('span');
             if (existingSpan) existingSpan.remove();
             form.appendChild(document.createElement('span')).innerText = 'Project Created!'
         });
+        
     };
     
 });
