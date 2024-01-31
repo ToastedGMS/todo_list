@@ -21,14 +21,19 @@ function addProjectToList() {
     }
 
     if (projectExists) {
+        console.log('1', projectList)
+        todoCreate();
+        // Find the existing project and push the todo details
+        const existingProject = projectList.find(project => project[0] === projectTitle);
+        existingProject.push(todoList[todoList.length - 1]);
+        console.log('2', projectList)
         // Remove existing span, if any
         let existingSpan = form.querySelector('span');
         if (existingSpan) existingSpan.remove();
-        form.appendChild(document.createElement('span')).innerText = `${document.getElementById('projectTitle').value} already exists!`;
+        form.appendChild(document.createElement('span')).innerText = `${document.getElementById('projectTitle').value} already exists! Todo added to existing project.`;
     } else {
         todoCreate();
-        const arr = new Array(projectTitle)
-        arr.push(todoList[todoList.length-1])
+        const arr = [projectTitle, todoList[todoList.length - 1]];
         projectList.push(arr);
         // Remove existing span, if any
         let existingSpan = form.querySelector('span');
