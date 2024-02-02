@@ -50,14 +50,25 @@ function showProjectList (){
     while (projectDiv.firstChild) {
         projectDiv.removeChild(projectDiv.lastChild)
     }
-        projectList.forEach((element, index) => {
+        projectList.forEach((element) => {
             let newBtn = document.createElement('button');
-            newBtn.setAttribute('data-index', index)
+            let projIndex = projectList.indexOf(element)
             newBtn.innerText = element[0];
             projectDiv.appendChild(newBtn)
             newBtn.addEventListener('click', () => {
                 cardCreate(element)
                 })
+            let delProjectBtn = document.createElement('button');
+            delProjectBtn.innerText = 'delet';
+            projectDiv.appendChild(delProjectBtn);
+            projectDiv.appendChild(document.createElement('br'))
+            projectDiv.appendChild(document.createElement('br'))
+            delProjectBtn.addEventListener('click', () => {
+                const isConfirmed = confirm(`Are you sure you want to delete the project?`);
+                if (isConfirmed) {
+                    projectList.splice(projIndex, 1);
+                }
+            })
         })
     })
 }
