@@ -1,7 +1,5 @@
 import { cardCreate } from "./todo_card";
 import { Todo, todoList } from "./todo_class";
-import { todoTasks, todoNotes, todoCheckLists } from "./todo_sort";
-
 
 const todoCreate = () => {
     let type = document.getElementById('type').value;

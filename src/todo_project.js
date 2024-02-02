@@ -21,12 +21,10 @@ function addProjectToList() {
     }
 
     if (projectExists) {
-        console.log('1', projectList)
         todoCreate();
         // Find the existing project and push the todo details
         const existingProject = projectList.find(project => project[0] === projectTitle);
         existingProject.push(todoList[todoList.length - 1]);
-        console.log('2', projectList)
         // Remove existing span, if any
         let existingSpan = form.querySelector('span');
         if (existingSpan) existingSpan.remove();
