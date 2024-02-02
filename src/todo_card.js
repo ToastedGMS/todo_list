@@ -1,3 +1,5 @@
+import { todoList } from "./todo_class";
+
 function cardCreate(arr){
     const main = document.querySelector('main');
 
@@ -7,7 +9,9 @@ function cardCreate(arr){
     }
 
     // card creation logic for each type of todo
-    arr.forEach((element) => {
+    arr.forEach((element, index) => {
+        const cardIndex = arr.indexOf(element);
+
 
         // task todo
         if (element.type === 'Task'){
@@ -24,32 +28,61 @@ function cardCreate(arr){
             timeP.innerText = element.dueTime;
             const prioriP = document.createElement('p');
             prioriP.innerText = element.priority;
-    
+            
+            const deleteBtn = document.createElement('button');
+            deleteBtn.setAttribute('data-type', 'delete-button');
+            deleteBtn.addEventListener('click', () => {
+                const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
+                
+                        if (isConfirmed) {
+                            todoList.splice(cardIndex, 1);
+                            cardCreate(todoList);
+                        }
+            })
+
             main.appendChild(taskCard);
             taskCard.appendChild(titleH3);
             taskCard.appendChild(descP);
             taskCard.appendChild(dateP);
             taskCard.appendChild(timeP);
             taskCard.appendChild(prioriP);
+            taskCard.appendChild(document.createElement('br'));
+            taskCard.appendChild(deleteBtn).innerText = 'Delete';
+
 
         // note todo
         } else if (element.type === 'Note'){
             const noteCard = document.createElement('div');
             noteCard.classList.add('noteCard');
+            noteCard.setAttribute('data-index', index);
             
             const titleH3 = document.createElement('h3');
             titleH3.innerText = element.title;
             const descP = document.createElement('p');
             descP.innerText = element.description;
-        
+            const deleteBtn = document.createElement('button')
+            deleteBtn.setAttribute('data-type', 'delete-button');
+            deleteBtn.addEventListener('click', () => {
+                const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
+                
+                        if (isConfirmed) {
+                            todoList.splice(cardIndex, 1);
+                            cardCreate(todoList);
+                        }
+            })
+
             main.appendChild(noteCard);
             noteCard.appendChild(titleH3);
             noteCard.appendChild(descP);
+            noteCard.appendChild(document.createElement('br'));
+            noteCard.appendChild(deleteBtn).innerText = 'Delete';
+
 
         // list todo
         } else if (element.type === 'List') {
             const listCard = document.createElement('div');
             listCard.classList.add('listCard');
+            listCard.setAttribute('data-index', index);
 
             const titleH3 = document.createElement('h3');
             titleH3.innerText = element.title;
@@ -64,13 +97,27 @@ function cardCreate(arr){
                     listItemsUl.appendChild(listItemLi);
                 });
             }
+            const deleteBtn = document.createElement('button')
+            deleteBtn.setAttribute('data-type', 'delete-button');
+            deleteBtn.addEventListener('click', () => {
+                const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
+                
+                        if (isConfirmed) {
+                            todoList.splice(cardIndex, 1);
+                            cardCreate(todoList);
+                        }
+            })
 
             main.appendChild(listCard);
             listCard.appendChild(titleH3);
             listCard.appendChild(listItemsUl);
+            listCard.appendChild(document.createElement('br'));
+            listCard.appendChild(deleteBtn).innerText = 'Delete';
+            
         }
     })
     
     }
+
 
     export { cardCreate }

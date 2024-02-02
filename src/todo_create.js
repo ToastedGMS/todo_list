@@ -36,14 +36,6 @@ const todoCreate = () => {
 
     let newTodo = new Todo(type, title, description, dueDate, dueTime, priority, listItems);
 
-    if (newTodo.type === 'Task') {
-        todoTasks.push(newTodo);
-    } else if (newTodo.type === 'Note') {
-        todoNotes.push(newTodo);
-    } else {
-        todoCheckLists.push(newTodo);
-    }
-
     newTodo.pushToList();
     cardCreate(todoList);
 }
