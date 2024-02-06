@@ -29,9 +29,11 @@ const form = document.createElement("form");
             input.id = id;
             input.name = id;
             input.setAttribute('maxlength', '13')
-            if (id === 'dueDate'|| id === 'dueTime'){
-            input.required = false}
-            else { input.required = true};
+            if (id === 'dueDate' || id === 'dueTime'){
+                input.required = false
+            } else { 
+                input.required = true
+            };
             return input;
         };
 
