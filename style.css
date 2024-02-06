@@ -71,11 +71,29 @@ aside {
     border: 2px solid yellow;
     grid-area: aside;
     display: flex;
+    flex-direction: column;
     padding: 1em;
 }
 
     h2 {
         margin: 0px;
+    }
+
+    #scheduleCardDiv{
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        
+    }
+
+    .scheduleCard {
+        border: 1px solid black;
+        border-radius: 15px;
+        height: fit-content;
+        padding: 10px;
+        width: fit-content;
+        width: 100%;
     }
 
 .modal {
