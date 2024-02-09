@@ -84,7 +84,7 @@ aside {
         display: flex;
         flex-direction: column;
         padding: 1em;
-        
+        gap: 1em;
     }
 
     .scheduleCard {
@@ -94,6 +94,16 @@ aside {
         padding: 10px;
         width: fit-content;
         width: 100%;
+    }
+
+    .scheduleCard > h4 {
+        margin-top: 5px;
+        margin-bottom: 0px;
+    }
+
+    .scheduleCard > p{
+        font-size: .9rem;
+        margin: .5em;
     }
 
 .modal {
