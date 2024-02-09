@@ -1,6 +1,7 @@
-import { format } from "date-fns";
+import { format } from 'date-fns';
 import { todoList } from "./todo_class";
 import { projectList } from "./todo_project";
+import { orderSchedule } from './todo_schedule';
 
 function cardCreate(arr){
     const main = document.querySelector('main');
@@ -25,7 +26,7 @@ function cardCreate(arr){
             taskCard.classList.add('taskCard');
             taskCard.setAttribute('data-task-id', element.title);
 
-            
+            // take values input in modal form and display on card
             const titleH3 = document.createElement('h3');
             titleH3.innerText = element.title;
             const descP = document.createElement('p');
@@ -34,13 +35,14 @@ function cardCreate(arr){
             if (element.dueDate === ''){
                 dateP.innerText = element.dueDate;
             } else {
-            dateP.innerText = format(new Date(element.dueDate), 'MMMM d, yyyy');
-            };
+                dateP.innerText = format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy');
+            }
             const timeP = document.createElement('p');
             timeP.innerText = element.dueTime;
             const prioriP = document.createElement('p');
             prioriP.innerText = element.priority;
             
+            // button to delete cards from main card div and schedule div
             const deleteBtn = document.createElement('button');
             deleteBtn.setAttribute('data-type', 'delete-button');
             deleteBtn.addEventListener('click', () => {
@@ -64,6 +66,7 @@ function cardCreate(arr){
                         }
             })
 
+            // append text to card, and card to div
             main.appendChild(taskCard);
             taskCard.appendChild(titleH3);
             taskCard.appendChild(descP);
@@ -73,16 +76,27 @@ function cardCreate(arr){
             taskCard.appendChild(document.createElement('br'));
             taskCard.appendChild(deleteBtn).innerText = 'Delete';
             
+            // schedule cards area
             const scheduleCard = document.createElement('div');
             scheduleCard.classList.add('scheduleCard');
             scheduleCard.setAttribute('data-schedule-id', element.title);
 
-
-            let scheduleTitle = document.createElement('h3');
+            // create schedule card and fill it up
+            let scheduleTitle = document.createElement('h4');
             scheduleTitle.innerText = element.title;
+            let scheduleDate = document.createElement('p');
+            if (element.dueTime === ''){
+                scheduleDate.innerText = format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy');
+            } else {
+                scheduleDate.innerText = format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy') + ' - ' + element.dueTime;
+            }
 
+            //append schedule card to schedule div
             scheduleCard.appendChild(scheduleTitle)
+            scheduleCard.appendChild(scheduleDate)
             scheduleCardDiv.appendChild(scheduleCard)
+            // function to order cards by date
+            orderSchedule()
 
         // note todo
         } else if (element.type === 'Note'){
@@ -90,11 +104,14 @@ function cardCreate(arr){
             noteCard.classList.add('noteCard');
             noteCard.setAttribute('data-index', index);
             
+            // take values input in modal form and display on card
             const titleH3 = document.createElement('h3');
             titleH3.innerText = element.title;
             const descP = document.createElement('p');
             descP.innerText = element.description;
             const deleteBtn = document.createElement('button')
+
+            // button to delete cards from main card div and schedule div
             deleteBtn.setAttribute('data-type', 'delete-button');
             deleteBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
@@ -105,6 +122,7 @@ function cardCreate(arr){
                         }
             })
 
+            // append text to card, and card to div
             main.appendChild(noteCard);
             noteCard.appendChild(titleH3);
             noteCard.appendChild(descP);
@@ -131,6 +149,8 @@ function cardCreate(arr){
                     listItemsUl.appendChild(listItemLi);
                 });
             }
+
+            // button to delete cards from main card div and schedule div
             const deleteBtn = document.createElement('button')
             deleteBtn.setAttribute('data-type', 'delete-button');
             deleteBtn.addEventListener('click', () => {
@@ -142,6 +162,7 @@ function cardCreate(arr){
                         }
             })
 
+            // append text to card, and card to div
             main.appendChild(listCard);
             listCard.appendChild(titleH3);
             listCard.appendChild(listItemsUl);
@@ -152,6 +173,4 @@ function cardCreate(arr){
     })
     
     }
-
-
     export { cardCreate }
