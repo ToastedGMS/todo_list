@@ -36,6 +36,8 @@ const todoCreate = () => {
 
     newTodo.pushToList();
     cardCreate(todoList);
+    let storableList = JSON.stringify(todoList)
+    localStorage.setItem('todoList', storableList)
 }
 
 export { todoCreate };
