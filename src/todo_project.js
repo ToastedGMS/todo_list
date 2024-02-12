@@ -29,6 +29,8 @@ function addProjectToList() {
         let existingSpan = form.querySelector('span');
         if (existingSpan) existingSpan.remove();
         form.appendChild(document.createElement('span')).innerText = `${document.getElementById('projectTitle').value} already exists! Todo added to existing project.`;
+        let storableProjectList = JSON.stringify(projectList)
+        localStorage.setItem('projectList', storableProjectList)
     } else {
         todoCreate();
         const arr = [projectTitle, todoList[todoList.length - 1]];
@@ -37,6 +39,8 @@ function addProjectToList() {
         let existingSpan = form.querySelector('span');
         if (existingSpan) existingSpan.remove();
         form.appendChild(document.createElement('span')).innerText = `Todo Created and added to ${document.getElementById('projectTitle').value}!`;
+        let storableProjectList = JSON.stringify(projectList)
+        localStorage.setItem('projectList', storableProjectList)
     }
 }
 
@@ -67,6 +71,8 @@ function showProjectList (){
                 const isConfirmed = confirm(`Are you sure you want to delete the project?`);
                 if (isConfirmed) {
                     projectList.splice(projIndex, 1);
+                    let storableProjectList = JSON.stringify(projectList)
+                    localStorage.setItem('projectList', storableProjectList)
                 }
             })
         })

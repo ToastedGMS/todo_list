@@ -50,6 +50,8 @@ function cardCreate(arr){
                 
                         if (isConfirmed) {
                             todoList.splice(cardIndex, 1);
+                            let storableList = JSON.stringify(todoList)
+                            localStorage.setItem('todoList', storableList)
                             cardCreate(todoList);
                             // Find and remove the corresponding schedule card from scheduleCardDiv
                             const scheduleCardToRemove = document.querySelector(`[data-schedule-id="${element.title}"]`);
@@ -60,6 +62,8 @@ function cardCreate(arr){
                                 const projectIndex = project.indexOf(element);
                                 if (projectIndex !== -1) {
                                     project.splice(projectIndex, 1);
+                                    let storableProjectList = JSON.stringify(projectList)
+                                    localStorage.setItem('projectList', storableProjectList)
                                     break;
                                 }
                             }
@@ -120,6 +124,8 @@ function cardCreate(arr){
                 
                         if (isConfirmed) {
                             todoList.splice(cardIndex, 1);
+                            let storableList = JSON.stringify(todoList)
+                            localStorage.setItem('todoList', storableList)
                             cardCreate(todoList);
                         }
             })
@@ -160,6 +166,8 @@ function cardCreate(arr){
                 
                         if (isConfirmed) {
                             todoList.splice(cardIndex, 1);
+                            let storableList = JSON.stringify(todoList)
+                            localStorage.setItem('todoList', storableList)
                             cardCreate(todoList);
                         }
             })
