@@ -85,7 +85,9 @@ function cardCreate(arr){
             let scheduleTitle = document.createElement('h4');
             scheduleTitle.innerText = element.title;
             let scheduleDate = document.createElement('p');
-            if (element.dueTime === ''){
+            if (element.dueDate === ''){
+                dateP.innerText = element.dueDate;
+            } else if (element.dueTime === ''){
                 scheduleDate.innerText = format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy');
             } else {
                 scheduleDate.innerText = format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy') + ' - ' + element.dueTime;
