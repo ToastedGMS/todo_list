@@ -1,5 +1,8 @@
 // imports section
+import { cardCreate } from "./todo_card";
+import { todoList } from "./todo_class";
 import { todoFormOpen, todoFormClose } from "./todo_modal";
+import { projectList } from "./todo_project";
 import { todoSort } from "./todo_sort";
 
 
@@ -34,3 +37,14 @@ closeModalButtons.forEach((element) => {
 
 // logic for todo sorting
 todoSort();
+
+document.addEventListener('DOMContentLoaded', function(){
+    let restorableList = localStorage.getItem('todoList');
+    let restoredList = JSON.parse(restorableList)
+    restoredList.forEach((e)=> todoList.push(e))
+    cardCreate(todoList)
+
+    let restorableProjectList = localStorage.getItem('projectList')
+    let restoredProjectList = JSON.parse(restorableProjectList);
+    restoredProjectList.forEach((e) => projectList.push(e))
+})
