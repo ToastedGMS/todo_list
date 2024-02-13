@@ -49,7 +49,11 @@ function showProjectList (){
     let projectBtn = document.querySelector('#projectBtn');
     let projectDiv = document.querySelector('#projectDiv');
 
+    let counter = 0;
+
     projectBtn.addEventListener('click',() => {
+
+    if (counter === 0){
     // delete all buttons to free up space for new ones
     while (projectDiv.firstChild) {
         projectDiv.removeChild(projectDiv.lastChild)
@@ -76,6 +80,13 @@ function showProjectList (){
                 }
             })
         })
+        counter = 1;
+    } else if (counter = 1){
+        while (projectDiv.firstChild) {
+            projectDiv.removeChild(projectDiv.lastChild)
+        }
+        counter = 0;
+    }
     })
 }
 
