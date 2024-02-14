@@ -38,6 +38,7 @@ closeModalButtons.forEach((element) => {
 // logic for todo sorting
 todoSort();
 
+// local storage
 document.addEventListener('DOMContentLoaded', function(){
     let restorableList = localStorage.getItem('todoList');
     let restoredList = JSON.parse(restorableList)
@@ -47,4 +48,12 @@ document.addEventListener('DOMContentLoaded', function(){
     let restorableProjectList = localStorage.getItem('projectList')
     let restoredProjectList = JSON.parse(restorableProjectList);
     restoredProjectList.forEach((e) => projectList.push(e))
+})
+
+document.querySelector('#deleteAll').addEventListener('click', function(){
+    const isConfirmed = confirm(`This action will delete ALL STORAGE PERMANENTLY`);
+    if (isConfirmed) {
+        localStorage.clear()
+        location.reload()
+    }
 })
