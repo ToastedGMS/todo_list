@@ -25,6 +25,7 @@ function cardCreate(arr){
             const taskCard = document.createElement('div');
             taskCard.classList.add('taskCard');
             taskCard.setAttribute('data-task-id', element.title);
+            taskCard.classList.add('card');
 
             // take values input in modal form and display on card
             const titleH3 = document.createElement('h3');
@@ -82,6 +83,7 @@ function cardCreate(arr){
             
             // schedule cards area
             const scheduleCard = document.createElement('div');
+            scheduleCard.classList.add('card');
             scheduleCard.classList.add('scheduleCard');
             scheduleCard.setAttribute('data-schedule-id', element.title);
 
@@ -109,6 +111,7 @@ function cardCreate(arr){
             const noteCard = document.createElement('div');
             noteCard.classList.add('noteCard');
             noteCard.setAttribute('data-index', index);
+            noteCard.classList.add('card');
             
             // take values input in modal form and display on card
             const titleH3 = document.createElement('h3');
@@ -143,6 +146,7 @@ function cardCreate(arr){
             const listCard = document.createElement('div');
             listCard.classList.add('listCard');
             listCard.setAttribute('data-index', index);
+            listCard.classList.add('card');
 
             const titleH3 = document.createElement('h3');
             titleH3.innerText = element.title;

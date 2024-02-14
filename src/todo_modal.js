@@ -83,12 +83,14 @@ type.addEventListener('change', () =>{
         form.appendChild(document.createElement("br"));
 
         var submitButton = document.createElement("input");
+        submitButton.classList.add('modalBtn')
         submitButton.type = "submit";
         submitButton.value = "Create Todo";
         submitButton.setAttribute("data-type", "submit-button");
         form.appendChild(submitButton);
         
         var buildProjectFormBtn = document.createElement("input");
+        buildProjectFormBtn.classList.add('modalBtn')
         buildProjectFormBtn.type = "submit";
         buildProjectFormBtn.value = "Add to Project";
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
@@ -133,12 +135,14 @@ type.addEventListener('change', () =>{
         form.appendChild(document.createElement("br"));
           
         var submitButton = document.createElement("input");
+        submitButton.classList.add('modalBtn')
         submitButton.type = "submit";
         submitButton.value = "Create Todo";
         submitButton.setAttribute("data-type", "submit-button");
         form.appendChild(submitButton);
 
         var buildProjectFormBtn = document.createElement("input");
+        buildProjectFormBtn.classList.add('modalBtn')
         buildProjectFormBtn.type = "submit";
         buildProjectFormBtn.value = "Add to Project";
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
@@ -191,12 +195,14 @@ type.addEventListener('change', () =>{
         form.appendChild(addButton);
     
         var submitButton = document.createElement("input");
+        submitButton.classList.add('modalBtn')
         submitButton.type = "submit";
         submitButton.value = "Create Todo";
         submitButton.setAttribute("data-type", "submit-button");
         form.appendChild(submitButton);
 
         var buildProjectFormBtn = document.createElement("input");
+        buildProjectFormBtn.classList.add('modalBtn')
         buildProjectFormBtn.type = "submit";
         buildProjectFormBtn.value = "Add to Project";
         buildProjectFormBtn.setAttribute("data-type", "project-form-build-button");
@@ -219,6 +225,7 @@ type.addEventListener('change', () =>{
         form.appendChild(document.createElement("br"));
 
         var projectCreateButton = document.createElement("input");
+        projectCreateButton.classList.add('modalBtn')
         projectCreateButton.type = "submit";
         projectCreateButton.value = "Create Project";
         projectCreateButton.setAttribute("data-type", "project-create-button");

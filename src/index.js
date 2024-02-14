@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function(){
     restoredProjectList.forEach((e) => projectList.push(e))
 })
 
+// button to wipe local storage
 document.querySelector('#deleteAll').addEventListener('click', function(){
     const isConfirmed = confirm(`This action will delete ALL STORAGE PERMANENTLY`);
     if (isConfirmed) {
