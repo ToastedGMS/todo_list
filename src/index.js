@@ -58,3 +58,8 @@ document.querySelector('#deleteAll').addEventListener('click', function(){
         location.reload()
     }
 })
+
+//github button
+document.querySelector('#githubBtn').addEventListener('click', ()=> {
+    window.open('https://github.com/ToastedGMS')
+})
