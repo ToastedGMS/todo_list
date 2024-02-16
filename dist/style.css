@@ -68,6 +68,23 @@ main{
     background-color: rgb(181, 255, 233);
     border-top: 5px solid black;
     border-left: 5px solid black;
+    overflow: auto;
+}
+
+main::-webkit-scrollbar, aside::-webkit-scrollbar{
+    width: .5em;
+}
+
+main::-webkit-scrollbar-thumb, aside::-webkit-scrollbar-thumb{
+    background: rgba(201, 201, 201);
+    border-radius: 15px;
+}
+
+@supports (scrollbar-color: red blue){
+    *{
+        scrollbar-color: rgba(201, 201, 201);
+        scrollbar-width: thin;
+    }
 }
 
     .taskCard, .noteCard, .listCard{
@@ -86,6 +103,7 @@ aside {
     background-color: rgb(181, 255, 233);
     border-top: 5px solid black;
     border-left: 2px solid black;
+    overflow: auto;
 }
 
     h2 {
@@ -137,6 +155,10 @@ aside {
         background-color: rgb(197, 224, 216);
         padding: 2px;
         border-radius: 5px;
+    }
+    .modal select:hover, .modal input:hover, .modal textarea:hover{
+        background-color: rgb(155, 177, 170);
+        cursor: pointer;
     }
 
     .modal.active {
@@ -192,6 +214,10 @@ button, #todoForm > .modalBtn {
     border-radius: 10px;
     background-color: rgb(197, 224, 216);
 }
+button:hover, #todoForm > .modalBtn:hover{
+    background-color: rgb(155, 177, 170);
+    cursor: pointer;
+}
 
 .headCreate{
     padding: 10px;
@@ -200,4 +226,16 @@ button, #todoForm > .modalBtn {
 .card {
     background-color: rgb(201, 201, 201);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    
+}
+
+.fa-trash-can{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+}
+.fa-trash-can:hover{
+    font-weight: bold;
+    cursor: pointer;
+    background-color: transparent;
 }
