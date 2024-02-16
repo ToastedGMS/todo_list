@@ -36,16 +36,22 @@ function cardCreate(arr){
             if (element.dueDate === ''){
                 dateP.innerText = element.dueDate;
             } else {
-                dateP.innerText = format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy');
+                dateP.innerText = `Due for ${format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy')}`;
             }
+            dateP.style.marginBottom = '0px';
             const timeP = document.createElement('p');
-            timeP.innerText = element.dueTime;
+            if (element.dueTime === ''){
+                timeP.innerText = element.dueTime
+            } else {
+                timeP.innerText = `at ${element.dueTime}`;
+            }
+            timeP.style.marginTop = '0px';
             const prioriP = document.createElement('p');
-            prioriP.innerText = element.priority;
+            prioriP.innerText = `Priority: ${element.priority}`;
             
             // button to delete cards from main card div and schedule div
             const deleteBtn = document.createElement('button');
-            deleteBtn.setAttribute('data-type', 'delete-button');
+            deleteBtn.classList.add('fa-regular', 'fa-trash-can');
             deleteBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
                 
@@ -79,7 +85,7 @@ function cardCreate(arr){
             taskCard.appendChild(timeP);
             taskCard.appendChild(prioriP);
             taskCard.appendChild(document.createElement('br'));
-            taskCard.appendChild(deleteBtn).innerText = 'Delete';
+            taskCard.appendChild(deleteBtn)
             
             // schedule cards area
             const scheduleCard = document.createElement('div');
@@ -106,6 +112,17 @@ function cardCreate(arr){
             // function to order cards by date
             orderSchedule()
 
+            if (element.priority === 'Low'){
+                taskCard.style.borderLeft = '6px solid #00b3b3';
+                scheduleCard.style.borderLeft = '6px solid #00b3b3'
+            } else if (element.priority === 'Medium'){
+                taskCard.style.borderLeft = '6px solid #ffff00';
+                scheduleCard.style.borderLeft = '6px solid #ffff00' 
+            } else if (element.priority === 'High'){
+                taskCard.style.borderLeft = '6px solid #ff0000';
+                scheduleCard.style.borderLeft = '6px solid #ff0000' 
+            }
+
         // note todo
         } else if (element.type === 'Note'){
             const noteCard = document.createElement('div');
@@ -121,7 +138,7 @@ function cardCreate(arr){
             const deleteBtn = document.createElement('button')
 
             // button to delete cards from main card div and schedule div
-            deleteBtn.setAttribute('data-type', 'delete-button');
+            deleteBtn.classList.add('fa-regular', 'fa-trash-can');
             deleteBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
                 
@@ -138,8 +155,7 @@ function cardCreate(arr){
             noteCard.appendChild(titleH3);
             noteCard.appendChild(descP);
             noteCard.appendChild(document.createElement('br'));
-            noteCard.appendChild(deleteBtn).innerText = 'Delete';
-
+            noteCard.appendChild(deleteBtn)
 
         // list todo
         } else if (element.type === 'List') {
@@ -164,7 +180,7 @@ function cardCreate(arr){
 
             // button to delete cards from main card div and schedule div
             const deleteBtn = document.createElement('button')
-            deleteBtn.setAttribute('data-type', 'delete-button');
+            deleteBtn.classList.add('fa-regular', 'fa-trash-can');
             deleteBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
                 
@@ -181,7 +197,7 @@ function cardCreate(arr){
             listCard.appendChild(titleH3);
             listCard.appendChild(listItemsUl);
             listCard.appendChild(document.createElement('br'));
-            listCard.appendChild(deleteBtn).innerText = 'Delete';
+            listCard.appendChild(deleteBtn)
             
         }
     })

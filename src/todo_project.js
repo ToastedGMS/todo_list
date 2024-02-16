@@ -67,7 +67,7 @@ function showProjectList (){
                 cardCreate(element)
                 })
             let delProjectBtn = document.createElement('button');
-            delProjectBtn.innerText = 'delet';
+            delProjectBtn.classList.add('fa-regular', 'fa-trash-can');
             projectDiv.appendChild(delProjectBtn);
             projectDiv.appendChild(document.createElement('br'))
             projectDiv.appendChild(document.createElement('br'))
