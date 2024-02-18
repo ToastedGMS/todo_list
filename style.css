@@ -164,19 +164,19 @@ aside {
     border: 1px solid black;
     border-radius: 15px;
     z-index: 10;
-    background-color: rgb(206, 171, 177);
+    background-color: #aaa1c8;
     width: 500px;
     max-width: 80%;
     padding: 1px;
 }
 
     .modal input , .modal select, .modal textarea{
-        background-color: rgb(197, 224, 216);
+        background-color: #f5e6e8;
         padding: 2px;
         border-radius: 5px;
     }
     .modal select:hover, .modal input:hover, .modal textarea:hover{
-        background-color: rgb(155, 177, 170);
+        background-color: #f5e6e8;
         cursor: pointer;
     }
 
@@ -191,7 +191,7 @@ aside {
         justify-content: space-between;
         align-items: center;
         border-bottom: 1px solid black;
-        background-color: rgb(181, 255, 233);
+        background-color: #cec4ee;
         border-radius: 15px 15px 0px 0px;
     }
 
@@ -232,7 +232,7 @@ aside {
 
 button, #todoForm > .modalBtn {
     border-radius: 10px;
-    background-color: rgb(197, 224, 216);
+    background-color: #f5e6e8;
 }
 button:hover, #todoForm > .modalBtn:hover{
     background-color: rgb(155, 177, 170);
