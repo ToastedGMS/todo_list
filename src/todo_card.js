@@ -48,6 +48,8 @@ function cardCreate(arr){
             timeP.style.marginTop = '0px';
             const prioriP = document.createElement('p');
             prioriP.innerText = `Priority: ${element.priority}`;
+            taskCard.style.backgroundColor = element.color;
+            taskCard.style.color = element.textColor;
             
             // button to delete cards from main card div and schedule div
             const deleteBtn = document.createElement('button');
@@ -104,6 +106,8 @@ function cardCreate(arr){
             } else {
                 scheduleDate.innerText = format(new Date(`${element.dueDate}T12:00:00`), 'MMMM d, yyyy') + ' - ' + element.dueTime;
             }
+            scheduleCard.style.backgroundColor = element.color;
+            scheduleCard.style.color = element.textColor;
 
             //append schedule card to schedule div
             scheduleCard.appendChild(scheduleTitle)
@@ -135,6 +139,8 @@ function cardCreate(arr){
             titleH3.innerText = element.title;
             const descP = document.createElement('p');
             descP.innerText = element.description;
+            noteCard.style.backgroundColor = element.color;
+            noteCard.style.color = element.textColor;
             const deleteBtn = document.createElement('button')
 
             // button to delete cards from main card div and schedule div
@@ -166,6 +172,8 @@ function cardCreate(arr){
 
             const titleH3 = document.createElement('h3');
             titleH3.innerText = element.title;
+            listCard.style.backgroundColor = element.color;
+            listCard.style.color = element.textColor;
 
             const listItemsUl = document.createElement('ul');
 

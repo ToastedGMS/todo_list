@@ -61,5 +61,5 @@ document.querySelector('#deleteAll').addEventListener('click', function(){
 
 //github button
 document.querySelector('#githubBtn').addEventListener('click', ()=> {
-    window.open('https://github.com/ToastedGMS')
-})
+    window.open('https://github.com/ToastedGMS');
+});

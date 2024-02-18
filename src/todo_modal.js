@@ -28,9 +28,11 @@ const form = document.createElement("form");
             input.type = type;
             input.id = id;
             input.name = id;
-            input.setAttribute('maxlength', '13')
+            input.setAttribute('maxlength', '20')
             if (id === 'dueDate' || id === 'dueTime'){
                 input.required = false
+            }else if (id === 'color') {
+                input.value = '#C9C9C9'
             } else { 
                 input.required = true
             };
@@ -82,6 +84,16 @@ type.addEventListener('change', () =>{
         form.appendChild(document.createElement("br"));
         form.appendChild(document.createElement("br"));
 
+        form.appendChild(createLabel("Card Color", 'color'));
+        form.appendChild(createInput('color', 'color'))
+        form.appendChild(document.createElement("br"));
+        form.appendChild(document.createElement("br"));
+
+        form.appendChild(createLabel("Text Color", 'textColor'));
+        form.appendChild(createInput('color', 'textColor'))
+        form.appendChild(document.createElement("br"));
+        form.appendChild(document.createElement("br"));
+
         var submitButton = document.createElement("input");
         submitButton.classList.add('modalBtn')
         submitButton.type = "submit";
@@ -118,7 +130,17 @@ type.addEventListener('change', () =>{
         form.appendChild(createTextarea("description"));
         form.appendChild(document.createElement("br"));
         form.appendChild(document.createElement("br"));
-          
+
+        form.appendChild(createLabel("Card Color", 'color'));
+        form.appendChild(createInput('color', 'color'))
+        form.appendChild(document.createElement("br"));
+        form.appendChild(document.createElement("br"));
+
+        form.appendChild(createLabel("Text Color", 'textColor'));
+        form.appendChild(createInput('color', 'textColor'))
+        form.appendChild(document.createElement("br"));
+        form.appendChild(document.createElement("br"));
+         
         form.appendChild(createLabel("Due Date", "dueDate"));
         form.appendChild(createInput("date", "dueDate"));
         form.appendChild(document.createElement("br"));
@@ -162,6 +184,16 @@ type.addEventListener('change', () =>{
         // Create and append elements to the form
         form.appendChild(createLabel("Title", "title"));
         form.appendChild(createInput("text", "title"));
+        form.appendChild(document.createElement("br"));
+        form.appendChild(document.createElement("br"));
+
+        form.appendChild(createLabel("Card Color", 'color'));
+        form.appendChild(createInput('color', 'color'))
+        form.appendChild(document.createElement("br"));
+        form.appendChild(document.createElement("br"));
+
+        form.appendChild(createLabel("Text Color", 'textColor'));
+        form.appendChild(createInput('color', 'textColor'))
         form.appendChild(document.createElement("br"));
         form.appendChild(document.createElement("br"));
     

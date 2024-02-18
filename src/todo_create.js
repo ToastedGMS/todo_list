@@ -31,8 +31,15 @@ const todoCreate = () => {
             listItems.push(input.value);
         }
     }
+    // Check if the element with ID 'color' exists
+    let colorElement = document.getElementById('color');
+    let color = colorElement ? colorElement.value : undefined
 
-    let newTodo = new Todo(type, title, description, dueDate, dueTime, priority, listItems);
+    // Check if the element with ID 'textColor' exists
+    let textColorElement = document.getElementById('textColor');
+    let textColor = textColorElement ? textColorElement.value : undefined
+
+    let newTodo = new Todo(type, title, description, dueDate, dueTime, priority, listItems, color, textColor);
 
     newTodo.pushToList();
     cardCreate(todoList);
