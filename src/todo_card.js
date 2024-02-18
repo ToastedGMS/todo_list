@@ -53,6 +53,7 @@ function cardCreate(arr){
             
             // button to delete cards from main card div and schedule div
             const deleteBtn = document.createElement('button');
+            deleteBtn.style.color = element.textColor;
             deleteBtn.classList.add('fa-regular', 'fa-trash-can');
             deleteBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
@@ -145,6 +146,7 @@ function cardCreate(arr){
 
             // button to delete cards from main card div and schedule div
             deleteBtn.classList.add('fa-regular', 'fa-trash-can');
+            deleteBtn.style.color = element.textColor;
             deleteBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
                 
@@ -189,6 +191,7 @@ function cardCreate(arr){
             // button to delete cards from main card div and schedule div
             const deleteBtn = document.createElement('button')
             deleteBtn.classList.add('fa-regular', 'fa-trash-can');
+            deleteBtn.style.color = element.textColor;
             deleteBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the todo?`);
                 
