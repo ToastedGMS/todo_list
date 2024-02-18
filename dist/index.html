@@ -11,25 +11,20 @@
 <body>
     <div class="container">
         
-        <header>
-            <h1>Todo</h1>
-            <button data-type="formBtn" data-modal-target='#modal' class="headCreate">Create New</button>
-        </header>
-        
         <nav>
             <div class="navigation">
-                <button data-all>Home</button>
-                <button data-tasks>Tasks</button>
-                <button data-notes>Notes</button>
-                <button data-lists>Lists</button>
-                <button id="projectBtn" data-projects>Projects</button>
+                <button data-all class="fa-solid fa-house"></button>
+                <button data-tasks class="fa-solid fa-clipboard-list"></button>
+                <button data-notes class="fa-solid fa-note-sticky"></button>
+                <button data-lists class="fa-solid fa-list-check"></button>
+                <button id="projectBtn" data-projects class="fa-solid fa-folder-open"></button>
                 <div id="projectDiv" class="projectDiv"></div>
-                <button data-type="formBtn">New</button>
+                <button data-type="formBtn" data-modal-target='#modal' class="fa-solid fa-circle-plus"></button>
             </div>
 
             <div class="about">
-                <button id="githubBtn">Github</button><br>
-                <button id="deleteAll">Clear</button>
+                <button id="githubBtn"class="fa-brands fa-github"></button><br>
+                <button id="deleteAll" class="fa-solid fa-eraser"></button>
             </div>
         </nav>
         
