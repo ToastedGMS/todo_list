@@ -2,6 +2,16 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+@font-face {
+    font-family: "Book Antiqua";
+    src: url("https://db.onlinewebfonts.com/t/c6999077c65e2379815b71fae05f167b.eot");
+    src: url("https://db.onlinewebfonts.com/t/c6999077c65e2379815b71fae05f167b.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/c6999077c65e2379815b71fae05f167b.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/c6999077c65e2379815b71fae05f167b.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/c6999077c65e2379815b71fae05f167b.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/c6999077c65e2379815b71fae05f167b.svg#TR Book Antiqua")format("svg");
+}
+
 html {
     background-color: #d5c6e0;
 }
@@ -52,8 +62,25 @@ nav {
     box-shadow: 0px 0px 15px black;
     position: relative;
 }
+
+    .projectDiv{
+        background-color: #aaa1c8;
+        box-shadow: 15px 0px 25px black;
+        position: absolute;
+        left: 100%;
+        overflow: auto;
+        border-radius: 15px;
+        padding: 5px;
+        overflow: auto;
+        height: 22em;
+    }
+
     .projectDiv button {
-        width: 100%;
+        font-size: 1rem;
+    }
+
+    .projectDiv button:hover, .projectBtnDiv:hover {
+        background-color:  #76708a;
     }
 
     nav button {
@@ -71,6 +98,15 @@ nav {
     .about {
         display: flex;
         flex-direction: column;
+    }
+
+    .projectBtnDiv{
+        margin: 3px;
+        border-radius: 15px;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid darkslategray;
+        box-shadow: 0px 0px 10px black;
     }
 
 main{
@@ -126,6 +162,7 @@ aside {
 
     h2 {
         margin: 0px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
     #scheduleCardDiv{
@@ -170,6 +207,10 @@ aside {
     padding: 1px;
 }
 
+    .modal label {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
     .modal input , .modal select, .modal textarea{
         background-color: #f5e6e8;
         padding: 2px;
@@ -198,6 +239,7 @@ aside {
     .modalHeader .title {
         font-size: 1.25rem;
         font-weight: bold;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     }
 
     .modalHeader .closeBtn {
@@ -233,6 +275,9 @@ aside {
 button, #todoForm > .modalBtn {
     border-radius: 10px;
     background-color: #f5e6e8;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding: .3em;
+    padding-top: .4em;
 }
 button:hover, #todoForm > .modalBtn:hover{
     background-color: rgb(155, 177, 170);
@@ -246,7 +291,23 @@ button:hover, #todoForm > .modalBtn:hover{
 .card {
     background-color: rgb(201, 201, 201);
     box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.75);
-    
+    padding: 1em;
+}
+
+.card h3{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.card h4 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.card p {
+    font-family: "Book Antiqua", 'Times New Roman', Times, serif;
+}
+
+.card li{
+    font-family: "Book Antiqua", 'Times New Roman', Times, serif;
 }
 
 .fa-trash-can{
