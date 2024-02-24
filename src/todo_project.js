@@ -59,17 +59,19 @@ function showProjectList (){
         projectDiv.removeChild(projectDiv.lastChild)
     }
         projectList.forEach((element) => {
+            let projectBtnDiv = document.createElement('div');
+            projectBtnDiv.classList.add('projectBtnDiv')
             let newBtn = document.createElement('button');
             let projIndex = projectList.indexOf(element)
             newBtn.innerText = element[0];
-            projectDiv.appendChild(newBtn)
+            projectBtnDiv.appendChild(newBtn)
+            projectDiv.appendChild(projectBtnDiv)
             newBtn.addEventListener('click', () => {
                 cardCreate(element)
                 })
             let delProjectBtn = document.createElement('button');
             delProjectBtn.classList.add('fa-regular', 'fa-trash-can');
-            projectDiv.appendChild(delProjectBtn);
-            projectDiv.appendChild(document.createElement('br'))
+            projectBtnDiv.appendChild(delProjectBtn);
             projectDiv.appendChild(document.createElement('br'))
             delProjectBtn.addEventListener('click', () => {
                 const isConfirmed = confirm(`Are you sure you want to delete the project?`);
