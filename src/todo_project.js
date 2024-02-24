@@ -48,6 +48,8 @@ function showProjectList (){
     // shows a list of all projects and displays selected one on button click
     let projectBtn = document.querySelector('#projectBtn');
     let projectDiv = document.querySelector('#projectDiv');
+    projectDiv.style.display ='inline';
+
 
     let counter = 0;
 
@@ -58,6 +60,7 @@ function showProjectList (){
     while (projectDiv.firstChild) {
         projectDiv.removeChild(projectDiv.lastChild)
     }
+    projectDiv.style.display ='inline';
         projectList.forEach((element) => {
             let projectBtnDiv = document.createElement('div');
             projectBtnDiv.classList.add('projectBtnDiv')
@@ -87,6 +90,7 @@ function showProjectList (){
         while (projectDiv.firstChild) {
             projectDiv.removeChild(projectDiv.lastChild)
         }
+        projectDiv.style.display ='none';
         counter = 0;
     }
     })
