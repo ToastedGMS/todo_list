@@ -46,8 +46,9 @@ function cardCreate(arr){
                 timeP.innerText = `at ${element.dueTime}`;
             }
             timeP.style.marginTop = '0px';
-            const prioriP = document.createElement('p');
+            const prioriP = document.createElement('h4');
             prioriP.innerText = `Priority: ${element.priority}`;
+            prioriP.style.fontWeight = '600'
             taskCard.style.backgroundColor = element.color;
             taskCard.style.color = element.textColor;
             
